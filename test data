@@ -1,0 +1,50 @@
+{
+    
+    "firstName": "Andile",
+    "lastName": "Qumbisa",
+    "employeeNumber":"12345",
+     
+    "addresses": [
+        {
+            
+            "addressLine1": "7226 Napasadi Crescent",
+            "addressLine2": "Mahube Valley",
+            "addressLine3": "Pretoria",
+            "type": 0 
+        },
+        {
+            
+            "addressLine1": "7226 Napasadi Crescent",
+            "addressLine2": "Mahube Valley",
+            "addressLine3": "Pretoria",
+            "type": 1 
+        }
+    ],
+    "contacts": [
+        {
+            
+            "landline": "0117144421",
+            "mobileNo": "0733366310",
+            "email": "qumbisaanathy@gmail.com",
+             "accounts": [
+        {
+            
+            "socialMediaURL": "@Andilej",
+            "type": 0
+           
+            
+               
+        },
+{
+            
+            "socialMediaURL": "0733366310",
+            "type": 4
+           
+            
+               
+        }
+    ]
+               
+        }
+    ]
+}
