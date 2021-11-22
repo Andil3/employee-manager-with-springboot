@@ -1,0 +1,96 @@
+<h3>Add Employee</h3>
+<div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <fieldset ngModelGroup="employee">
+                <label for="firstName">Name</label>
+                <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="employee.firstName">
+
+                <label for="lastName">Surname</label>
+                <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="employee.lastName">
+
+                <label  for="employeeNumber">Employee Number</label>
+                <input type="text" class="form-control" name="employeeNumber" id="employeeNumber" [(ngModel)]="employee.employeeNumber">
+                
+                <fieldset ng-repeat="addresses in employee.addresses" ngModelGroup="employee.addresses">
+                    <label for="addressLine1">Address Line 1</label>
+                    <input type="text" class="form-control" name="addressLine1" id="addressLine1" [(ngModel)]="employee.addresses.addressLine1">
+
+                    <label for="addressLine1">Address Line 2</label>
+                    <input type="text" class="form-control" name="addressLine2" id="addressLine2" [(ngModel)]="employee.addresses.addressLine2">
+
+                    <label for="addressLine1">Address Line 3</label>
+                    <input type="text" class="form-control" name="addressLine3" id="addressLine3" [(ngModel)]="employee.addresses.addressLine3">
+                    
+
+                    <label>Address Type</label>
+                    <div class="form-control">
+                        <label for="type" class="radio-inline">
+                            <input type="radio" name="type" value="POSTAL" [(ngModel)]="type">
+                            Postal
+                        </label>
+                        <label for="type" class="radio-inline">
+                            <input type="radio" name="type" value="RESIDENTIAL" [(ngModel)]="type">
+                            Residential
+                        </label>
+                    </div>
+                 
+
+                </fieldset>
+
+                <fieldset ng-repeat="contact in employee.contacts" ngModelGroup="employee.contacts">
+                    <label for="contactValue">Contact</label>
+                    <input type="text" class="form-control" name="contactValue" id="contactValue" [(ngModel)]="employee.contacts.contactValue">
+
+                   
+                    <label>Contact Type</label>
+                    <div class="form-control">
+                        <label for="contactTtype" class="radio-inline">
+                            <input type="radio" name="contactTtype" value="EMAIL" [(ngModel)]="contactType">
+                            Email
+                        </label>
+                        <label for="contactTtype" class="radio-inline">
+                            <input type="radio" name="contactTtype" value="LANDLINE" [(ngModel)]="contactType">
+                            Land-line
+                        </label>
+                        <label for="contactTtype" class="radio-inline">
+                            <input type="radio" name="contactTtype" value="MOBILENUMBER" [(ngModel)]="contactType">
+                            Cell-Number
+                        </label>
+                    </div>
+
+                </fieldset>
+                <fieldset ng-repeat="account in accounts" ngModelGroup="accounts">
+                    <label for="socilaMediaURL">Contact</label>
+                    <input type="text" class="form-control" name="socilaMediaURL" id="socilaMediaURL" [(ngModel)]="employee.accounts.socilaMediaURL">
+
+                   
+                    <label>Account Type</label>
+                    <div class="form-control">
+                        <label for="accountType" class="radio-inline">
+                            <input type="radio" name="accountType" value="FACEBOOK" [(ngModel)]="accountType">
+                            Facebook
+                        </label>
+                        <label for="accountType" class="radio-inline">
+                            <input type="radio" name="type" value="TWITTER" [(ngModel)]="accountType">
+                            Twitter
+                        </label>
+                        <label for="accountType" class="radio-inline">
+                            <input type="radio" name="accountType" value="WHATAPP" [(ngModel)]="accountType">
+                            Whatapp
+                        </label>
+                        <label for="accountType" class="radio-inline">
+                            <input type="radio" name="accountType" value="LINKEDIN" [(ngModel)]="accountType">
+                            LinkedIn
+                        </label>
+                        <label for="accountType" class="radio-inline">
+                            <input type="radio" name="accountType" value="INSTAGRAM" [(ngModel)]="accountType">
+                            Instagram
+                        </label>
+                    </div>
+
+                </fieldset>
+            </fieldset>
+        </div>
+    </form>
+</div>

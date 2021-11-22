@@ -1,0 +1,5 @@
+export enum ContactType{
+    LANDLINE='LANDLINE',
+    MOBILENUMBER='MOBILENUMBER',
+    EMAIL='EMAIL'
+}
