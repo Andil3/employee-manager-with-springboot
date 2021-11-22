@@ -9,15 +9,17 @@ package andile.employeemanagement.Enum;
  *
  * @author Andile
  */
-public enum AddressType {
-    POSTAL("Postal"),RESIDENTIAL("Residential");
-     private final String displayName;
+
+public enum ContactType {
+   EMAIL("Email"),
+   LANDLINE("Land Line"),
+   MOBILENUMBER("Mobile number");
+   private final String displayName;
    
-   AddressType(final String displayName){
+   ContactType(final String displayName){
        this.displayName= displayName;
    }
-   
-    @Override
+   @Override
    public String toString(){
    return this.displayName;
    }

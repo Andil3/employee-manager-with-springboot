@@ -6,30 +6,37 @@
 package andile.employeemanagement.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
  * @author Andile
  */
 @Entity
+@Table(name="employee")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
+@Builder
 public class Employee implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id",nullable=false)
     private Long id;
     
@@ -41,15 +48,14 @@ public class Employee implements Serializable {
     
     @Column(name="EmpNo",nullable=false)
     private String employeeNumber;
+   
+    @OneToMany(cascade=CascadeType.ALL)
+    private Set<Address> addresses;
     
+   @OneToMany(cascade=CascadeType.ALL)
+    private Set<Contact> contacts;
     
-    @Column(name="Address_List",nullable=false)
-    @OneToMany(cascade= CascadeType.ALL,orphanRemoval=true)
-    private List<Address> addresses;
-    
-    
-    @Column(name="Contact_Details",nullable=false)
-    @OneToMany(cascade= CascadeType.ALL,orphanRemoval=true)
-    private List<Contact> contacts;
+    @OneToMany(cascade=CascadeType.ALL)
+    private Set<Account> accounts;
     
 }

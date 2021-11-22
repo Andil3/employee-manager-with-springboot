@@ -14,21 +14,31 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
  * @author Andile
  */
-@Entity(name="Addresses")
+@Entity
+@Table(name="address")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
+@Builder
 public class Address implements Serializable{
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id",nullable=false)
     private Long id;
     
@@ -44,6 +54,7 @@ public class Address implements Serializable{
     @Column(name="Address_Type",nullable=false)
     @Enumerated(EnumType.STRING)
     private AddressType type;
+   
     
             
 }

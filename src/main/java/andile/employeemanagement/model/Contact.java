@@ -5,10 +5,8 @@
  */
 package andile.employeemanagement.model;
 
-import andile.employeemanagement.Enum.SocialMediaType;
+import andile.employeemanagement.Enum.ContactType;
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -16,36 +14,39 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
  * @author Andile
  */
 @Entity
+@Table(name="contact")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
+@Builder
 public class Contact implements Serializable{
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id",nullable=false)
     private Long id;
     
-    @Column(name="Land_Line")
-    private String landline;
+    @Column(name="contact_value")
+    private String contactValue;
+    @Column(name="contact_type",nullable=false)
+    @Enumerated(EnumType.STRING)
+    private ContactType contactType;
     
-    @Column(name="Mobile_Number")
-    private String mobileNo;
+   
     
-    @Column(name="Email")
-    private String email;
-    
-    @Column(name="Contact_Details",nullable=false)
-    @OneToMany(cascade= CascadeType.ALL,orphanRemoval=true)
-    private List<SocialAccount> accounts;
-            
+  
 }

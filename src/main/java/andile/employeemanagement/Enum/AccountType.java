@@ -9,15 +9,14 @@ package andile.employeemanagement.Enum;
  *
  * @author Andile
  */
-public enum AddressType {
-    POSTAL("Postal"),RESIDENTIAL("Residential");
+public enum AccountType {
+    FACEBOOK("Facebook"),TWITTER("Twitter"),INSTAGRAM("Instagram"),LINKEDIN("LinkedIn"),WHATSAPP("Whatapp");
      private final String displayName;
    
-   AddressType(final String displayName){
+   AccountType(final String displayName){
        this.displayName= displayName;
    }
-   
-    @Override
+   @Override
    public String toString(){
    return this.displayName;
    }
