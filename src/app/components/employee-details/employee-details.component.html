@@ -1,1 +1,51 @@
-<p>employee-details works!</p>
+<h3>Add Employee</h3>
+<div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <fieldset ngModelGroup="employee">
+                <label for="firstName">Name</label>
+                {{employee.firstName}}
+                <label for="lastName">Surname</label>
+                {{employee.lastName}}
+                <label  for="employeeNumber">Employee Number</label>
+                {{employee.employeeNumber}}
+                <fieldset ng-repeat="addresses in employee.addresses" ngModelGroup="employee.addresses">
+                    <label for="addressLine1">Address Line 1</label>
+                    {{employee.addresses.addressLine1}}
+
+                    <label for="addressLine2">Address Line 2</label>
+                    {{employee.addresses.addressLine2}}
+                    <label for="addressLine3">Address Line 3</label>
+                    {{employee.addresses.addressLine3}}
+
+                    <label>Address Type</label>
+                    <div class="form-control">
+                        <label for="type">Type</label>
+                        {{employee.addresses.type}}
+                        
+                    </div>
+                 
+
+                </fieldset>
+
+                <fieldset ng-repeat="contact in employee.contacts" ngModelGroup="employee.contacts">
+                    <label for="contactValue">Contact</label>
+                    {{employee.contacts.contactValue}}
+                   
+                    <label>Contact Type</label>
+                    {{employee.contacts.contactType}}
+
+                </fieldset>
+                <fieldset ng-repeat="account in accounts" ngModelGroup="accounts">
+                    <label for="socilaMediaURL">Handle</label>
+                    {{employee.accounts.socialMediaURL}}
+
+                   
+                    <label>Account Type</label>
+                    {{employee.accounts.accountType}}
+                </fieldset>
+            </fieldset>
+        </div>
+     <button (click)="gotoEmployees()" class="btn btn-primary">Employees</button>
+    </form>
+</div>

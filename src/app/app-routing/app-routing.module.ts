@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import {  RouterModule, Routes } from '@angular/router';
 import { CreateEmployeeComponent } from '../components/create-employee/create-employee.component';
+import { EmployeeListComponent } from '../components/employee-list/employee-list.component';
 
 
 
@@ -9,7 +10,8 @@ import { CreateEmployeeComponent } from '../components/create-employee/create-em
 
 const routes: Routes = [
   {path :'',redirectTo:'employee',pathMatch:'full'},
-  {path:'add',component: CreateEmployeeComponent}
+  {path:'add',component: CreateEmployeeComponent},
+  {path: 'employees',component: EmployeeListComponent}
 ]
 
 @NgModule({

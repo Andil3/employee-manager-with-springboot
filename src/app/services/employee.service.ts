@@ -11,16 +11,21 @@ export class EmployeeService {
   private apiServerUrl = environment.apiBaseUrl;
   constructor(private http: HttpClient){}
 
+  public getEmployee(id:number):Observable<Employee>{
+      return this.http.get<Employee>(`${this.apiServerUrl}`);
+  }
+
   public getEmployees(): Observable<Employee[]>{
-      return this.http.get<Employee[]>(`${this.apiServerUrl}/employee/all`);
+      return this.http.get<Employee[]>(`${this.apiServerUrl}/employee/find`);
 
   }
   public addEmployee(employee: Employee): Observable<Employee>{
       return this.http.post<Employee>(`${this.apiServerUrl}/employee/add`,employee);
   }
 
-  public updateEmployee(employee: Employee): Observable<Employee>{
-      return this.http.put<Employee>(`${this.apiServerUrl}/employee/update`,employee);
+
+  public updateEmployee(employeeId: number,employee: Employee): Observable<Employee>{
+      return this.http.put<Employee>(`${this.apiServerUrl}/employee/update${employeeId}`,employee);
   }
 
   public deleteEmployee(employeeId: number): Observable<Employee>{

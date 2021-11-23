@@ -22,13 +22,21 @@ contactType=ContactType;
 
   ngOnInit(): void {
   }
-
+addEmployee():void{
+  this.submitted= false;
+  this.employee = new Employee();
+}
+save(){
+  this.employeeService.addEmployee(this.employee)
+  .subscribe(data => console.log(data),error => console.log(error));
+  this.employee = new Employee();
+  this.gotoEmployees();
+}
   onSubmit(){
-    this.submitted= true;
-    this.employeeService.addEmployee(this.employee).subscribe(
-      data => console.log(data),error => console.log(error))
-      
-    this.employee=new Employee();
-    this.router.navigate(['/employees'])
+    this.submitted = true;
+    this.save();
+  }
+  gotoEmployees(){
+    this.router.navigate(['/employees']);
   }
 }
